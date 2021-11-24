@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML_DOM</title>
+    <style>
+        div.items{
+            display:flex;
+        }
+        div.item{
+            width: 50%;
+        }
+        .item>img{
+            width: 100%;
+        }
+        div.thumb{
+            display: flex;
+        }
+        div.thumb >div{
+            width:20%;
+        }
+        .item a>img{
+            height: 30px;
+            width: 50px;
+        }
+        
+    </style>
+    <script>
+        function changeImage(obj){
+            var path =obj.src;
+            var img=document.getElementById("mainImage");
+            //img.src=path;
+            img.setAttribute("src",path);
+            
+        }
+        // DÙng cái này bởi vì để khi thêm nhiều phần tử cx k ảnh hưởng đến click
+        function init(){
+            //dùng cái này trả về conllection
+            var images=document.querySelectorAll("div.thumb img")
+            for(var i=0;i<images.length;i++){
+                images[i].onclick =function(){
+                    var path =this.src;
+                    var img=document.getElementById("mainImage");
+                    //img.src=path;
+                    img.setAttribute("src",path);
+                }
+            }
+            var buttons =document.querySelectorAll(".btn a")
+             for(var i=0;i<buttons.length;i++){
+                 buttons[i].onclick=function(){
+                     var color=this.getAttribute("rel")
+                     var img=document.getElementById("mainImage");
+                    //  img.src= "images" + color + "_1.jpg";
+                     img.src='images/${color}_1.jpg';
+                 }
+             }
+            }
+    </script>
+    
+</head>
+<body onload="init()">
+   
+     <h1>JAVASCRIPT</h1>
+    <!-- // <div class="item">
+    //     <img src="images/anh7.jpg" id="mainImage" alt="phone" />
+    //     <div class="thumb">
+    //         <div><img src="images/anh2.jpg" onclick="changeImage(this)" alt="1"></div>
+    //         <div><img src="images/anh3.jpg" onclick="changeImage(this)" alt="2"></div>
+    //         <div><img src="images/anh4.jpg" onclick="changeImage(this)" alt="3"></div>
+    //         <div><img src="images/anh5.jpg" onclick="changeImage(this)" alt="4"></div>
+    //         <div><img src="images/anh6.jpg" onclick="changeImage(this)" alt="5"></div>
+    //         <div><img src="images/anh8.jpg" onclick="changeImage(this)" alt="6"></div>
+    //         <div><img src="images/anh9.jpg" onclick="changeImage(this)" alt="7"></div>
+    //         <div><img src="images/anh10.jpg" onclick="changeImage(this)" alt="8"></div>
+    //     </div>
+    // </div>  --> 
+
+    <!-- Ví dụ 2 -->
+    <div class="items">
+        <div class="item">
+            <img src="images/anh7.jpg" id="mainImage" alt="phone" />
+            <div class="thumb">
+                <div><img src="images/anh2.jpg"  alt="1"></div>
+                <div><img src="images/anh3.jpg"  alt="2"></div>
+                <div><img src="images/anh4.jpg"  alt="3"></div>
+                <div><img src="images/anh5.jpg"  alt="4"></div>
+                <div><img src="images/anh6.jpg"  alt="5"></div>
+                
+            </div>
+        </div>
+        <div class="item">
+            <h1>ĐIỆN THOẠI GALAXY S8</h1>
+            <div class="btn__color">
+                <a href="" rel="anhmau1">
+                    <img src="images/anhmau1.jpg" />
+                </a>
+                <a href="" rel="anhmau2">
+                    <img src="images/anhmau2.jpg" />
+                </a>
+                <a href="" rel="anhmau3">
+                    <img src="images/anhmau3.jpg" />
+                </a>
+                <a href="" rel="anhmau4">
+                    <img src="images/anhmau4.jpg" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document_DOM_HTML</title>
+    <script>
+        // function myFunction(){
+        //     let z= document.getElementById("tieude");
+        //     console.log(z);
+        //     z.style.color="red";
+        //     z.style.textAlign="center";
+        // }
+        function myFunction(){
+            let x=document.getElementsByClassName("tieude");
+           console.log(x);
+        //    x[0].style.color="red";
+           for(let elem in x){
+               x[elem].style.color="red"
+               
+           }
+           for(let elem in x){
+               x[elem].style.background="blue";
+           }
+           
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <h1 class="tieude" >
+        Thao tác với DOM
+    </h1>
+    <p class="tieude">Nhiều phần tử ghê</p>
+    <button onclick="myFunction();">Xác nhận</button>
+</body>
+</html>
